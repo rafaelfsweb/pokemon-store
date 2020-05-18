@@ -7,7 +7,6 @@ export const Container = styled.header`
   align-items: center;
   margin: 50px 0;
   background: ${localStorage.getItem('@store/bg-color')};
-
 `;
 
 export const Cart = styled(Link)`
