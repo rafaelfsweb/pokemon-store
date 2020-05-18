@@ -16,7 +16,7 @@ class Home extends Component {
   };
 
   async componentDidMount() {
-    const response = await api.get('/type/11');
+    const response = await api.get(`/type/${localStorage.getItem('@store/type')}`);
 
     const data = response.data.pokemon.map(pokemon => ({
       ...pokemon,
