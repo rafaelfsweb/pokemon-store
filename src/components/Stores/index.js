@@ -2,45 +2,39 @@ import React, { Component } from 'react';
 import { Container } from './styles';
 
 class Stores extends Component{
-  
-  constructor(props) {
-    super(props);     
-    this.toggle= this.toggle.bind(this);
-    this.state = {
-        details: false
-      } 
-  }  
-  toggle(f){
-    const currentState = this.state.details;
+
+  handleChangeStore(f){
 
     switch(f.target.className) {
       case 'planta':
         localStorage.setItem('@store/bg-color', '#33A539');
         localStorage.setItem('@store/type', '12');
-        this.setState({ details: !currentState }); 
-        return true;
+        window.location.href = '/'; 
+        break;
       case 'agua':
         localStorage.setItem('@store/bg-color', '#3F9CFF');
         localStorage.setItem('@store/type', '11');
-        this.setState({ details: !currentState }); 
-        return true;
+        window.location.href = '/'; 
+        break;
       case 'fogo':
         localStorage.setItem('@store/bg-color', '#FC3001');
         localStorage.setItem('@store/type', '10');
-        this.setState({ details: !currentState }); 
-        return true;
+        window.location.href = '/'; 
+        break;
       case 'fantasma':
         localStorage.setItem('@store/bg-color', '#7F006E');
         localStorage.setItem('@store/type', '8');
-        this.setState({ details: !currentState }); 
-        return true;
+        window.location.href = '/'; 
+        break;
       case 'terra':
         localStorage.setItem('@store/bg-color', '#5B2A00');
         localStorage.setItem('@store/type', '5');
-        this.setState({ details: !currentState }); 
-        return true;
+        window.location.href = '/'; 
+        break;
       default:
-        return true;
+        localStorage.setItem('@store/bg-color', '#3F9CFF');
+        localStorage.setItem('@store/type', '11');
+        break;
     }
   }
 
@@ -48,11 +42,11 @@ class Stores extends Component{
     return (
       <>
         <Container>
-          <button type="button" className="agua" onClick={this.toggle}>Água</button>
-          <button type="button" className="planta" onClick={this.toggle}>Planta</button>
-          <button type="button" className="fogo" onClick={this.toggle}>Fogo</button>
-          <button type="button" className="fantasma" onClick={this.toggle}>Fantasma</button>
-          <button type="button" className="terra" onClick={this.toggle}>Terra</button>
+          <button type="button" className="agua" onClick={this.handleChangeStore}>Água</button>
+          <button type="button" className="planta" onClick={this.handleChangeStore}>Planta</button>
+          <button type="button" className="fogo" onClick={this.handleChangeStore}>Fogo</button>
+          <button type="button" className="fantasma" onClick={this.handleChangeStore}>Fantasma</button>
+          <button type="button" className="terra" onClick={this.handleChangeStore}>Terra</button>
         </Container>
       </>
     );

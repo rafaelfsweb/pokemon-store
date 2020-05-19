@@ -34,7 +34,7 @@ function Cart({ cart, total, removeFromCart, updateAmount }) {
         </thead>
         <tbody>
           {cart.map(pokemon => (
-            <tr>
+            <tr key={ "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokemon.pokemon.url.split('/')[pokemon.pokemon.url.split('/').length - 2] + ".png" + pokemon.pokemon.name}>
               <td>
                 <img 
                   src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ pokemon.pokemon.url.split('/')[pokemon.pokemon.url.split('/').length - 2] + ".png"}

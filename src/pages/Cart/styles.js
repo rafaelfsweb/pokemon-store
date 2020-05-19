@@ -13,7 +13,7 @@ export const Container = styled.div`
     align-items: center;
 
     button {
-      background: ${localStorage.getItem('@store/bg-color')};
+      background: ${(localStorage.getItem('@store/bg-color') ? localStorage.getItem('@store/bg-color') : '#3F9CFF')};
       color: #fff;
       border: 0;
       border-radius: 4px;
@@ -22,14 +22,14 @@ export const Container = styled.div`
       text-transform: uppercase;
 
       &:hover {
-        background: ${darken(0.03, localStorage.getItem('@store/bg-color'))};
+        background: ${darken(0.03, (localStorage.getItem('@store/bg-color') ? localStorage.getItem('@store/bg-color') : '#3F9CFF'))};
       }
     }
   }
 `;
 
 export const PokemonTable = styled.table`
-  width: 50%;
+  width: 100%;
 
   thead th {
     color: #999;

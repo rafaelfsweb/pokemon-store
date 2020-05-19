@@ -16,14 +16,17 @@ class Home extends Component {
   };
 
   async componentDidMount() {
-    const response = await api.get(`/type/${localStorage.getItem('@store/type')}`);
+    if (localStorage.getItem('@store/type') != null )
+    {
+      const response = await api.get(`/type/${localStorage.getItem('@store/type')}`);
+      
+      const data = response.data.pokemon.map(pokemon => ({
+        ...pokemon,
+        priceFormatted: formatPrice(pokemon.pokemon.url.split('/')[pokemon.pokemon.url.split('/').length - 2])
+      }));
 
-    const data = response.data.pokemon.map(pokemon => ({
-      ...pokemon,
-      priceFormatted: formatPrice(pokemon.pokemon.url.split('/')[pokemon.pokemon.url.split('/').length - 2])
-    }));
-
-    this.setState({pokemons: data});
+      this.setState({pokemons: data});
+    }
   }
 
   handleAddPokemon = pokemon => {

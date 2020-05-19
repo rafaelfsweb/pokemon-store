@@ -33,7 +33,7 @@ export const PokemonList = styled.ul`
     }
 
     button {
-      background: ${localStorage.getItem('@store/bg-color')};
+      background: ${(localStorage.getItem('@store/bg-color') ? localStorage.getItem('@store/bg-color') : '#3F9CFF')};
       color: #fff;
       border: 0;
       border-radius: 4px;
@@ -45,7 +45,7 @@ export const PokemonList = styled.ul`
       transition: background .2s;
 
       &:hover {
-        background: ${darken(0.03, localStorage.getItem('@store/bg-color'))}
+        background: ${darken(0.03, (localStorage.getItem('@store/bg-color') ? localStorage.getItem('@store/bg-color') : '#3F9CFF'))}
       }
 
       div {
